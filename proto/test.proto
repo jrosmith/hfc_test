@@ -1,0 +1,37 @@
+syntax = "proto3";
+package test;
+
+message UnaryRequest {
+  string details = 1;
+}
+
+message UnaryResponse {
+    enum UnaryResponseCode {
+        UNDEFINED = 0;
+        ACK = 1;
+        SUCCESS = 2;  // endstate
+        ERROR = 3;     // endstate
+    }
+    UnaryResponseCode stat = 1;
+    string details = 2;
+}
+
+message StreamRequest {
+  string details = 1;
+}
+
+message StreamResponse {
+  enum StreamResponseCode {
+      UNDEFINED = 0;
+      ACK = 1;
+      SUCCESS = 2;  // endstate
+      ERROR = 3;     // endstate
+  }
+  StreamResponseCode stat = 1;
+  string details = 2;
+}
+
+service Test {
+  rpc UnaryRequest(UnaryRequest) returns (UnaryResponse) {}
+  rpc StreamRequest(StreamResponse) returns (stream StreamResponse) {}
+}

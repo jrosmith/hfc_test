@@ -1,0 +1,9 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "dependencies": {
+    "google-protobuf": "^3.0.0",
+    "grpc": "^1.0.0",
+    "hfc": "^0.6.5"
+  }
+}
